@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sciences de l'Ingénieur — Découverte</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.css">
+    <style>
+        :root {
+            --primary: #0D9488;
+            --primary-dark: #0F766E;
+            --secondary: #14B8A6;
+            --accent: #F0FDFA;
+            --dark: #134E4A;
+            --darker: #0C3631;
+            --text: #1E293B;
+            --gray: #64748B;
+            --light: #F8FFFE;
+        }
+        
+        .reveal-viewport {
+            background: var(--light) !important;
+        }
+        
+        .reveal {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        .reveal .slides {
+            text-align: left;
+        }
+        
+        .reveal .slides section {
+            background: var(--light);
+            padding: 40px 60px;
+            height: 100%;
+            box-sizing: border-box;
+        }
+        
+        .reveal .slides section.dark-slide {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .reveal h1 {
+            font-size: 2.5em !important;
+            font-weight: 800 !important;
+            color: white !important;
+            margin: 0 !important;
+        }
+        
+        .reveal h2 {
+            font-size: 1.6em !important;
+            font-weight: 700 !important;
+            color: var(--dark) !important;
+            margin: 0 0 0.6em 0 !important;
+            padding-bottom: 0.3em;
+            border-bottom: 4px solid var(--primary);
+            display: inline-block;
+        }
+        
+        .reveal p, .reveal li {
+            font-size: 0.85em;
+            line-height: 1.5;
+            color: var(--text);
+        }
+        
+        .title-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        
+        .subtitle {
+            color: var(--secondary) !important;
+            font-size: 1.2em !important;
+            margin: 0.5em 0 1em 0 !important;
+        }
+        
+        .tagline {
+            background: var(--primary);
+            display: inline-block;
+            padding: 0.5em 1.5em;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1em;
+            color: white;
+        }
+        
+        .footer-text {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            font-size: 0.7em;
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+        }
+        
+        .cards-3 {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            flex: 1;
+            text-align: center;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .card-icon {
+            font-size: 2em;
+            margin-bottom: 0.2em;
+        }
+        
+        .card h3 {
+            color: var(--primary) !important;
+            font-size: 1em !important;
+            margin: 0.2em 0 0.4em 0 !important;
+            font-weight: 700 !important;
+        }
+        
+        .card p {
+            color: var(--gray);
+            font-size: 0.75em !important;
+            margin: 0;
+        }
+        
+        .card ul {
+            text-align: left;
+            font-size: 0.7em !important;
+            color: var(--gray);
+            margin: 0.5em 0 0 0;
+            padding-left: 1.2em;
+        }
+        
+        .card li {
+            font-size: 1em !important;
+            margin: 0.2em 0;
+            color: var(--gray);
+        }
+        
+        .info-box {
+            background: var(--accent);
+            border-left: 4px solid var(--primary);
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: var(--dark);
+        }
+        
+        .info-box.highlight {
+            background: var(--primary);
+            color: white;
+            border-left: none;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .info-box strong {
+            color: var(--primary);
+        }
+        
+        .info-box.highlight strong {
+            color: white;
+        }
+        
+        .two-cols {
+            display: flex;
+            gap: 40px;
+            margin-top: 20px;
+        }
+        
+        .col {
+            flex: 1;
+        }
+        
+        .col h3 {
+            color: var(--primary) !important;
+            font-size: 0.95em !important;
+            margin: 0 0 0.6em 0 !important;
+            font-weight: 700 !important;
+        }
+        
+        .simple-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .simple-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #E2E8F0;
+            font-size: 0.8em !important;
+        }
+        
+        .simple-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .simple-list strong {
+            color: var(--text);
+        }
+        
+        .simple-list span {
+            color: var(--gray);
+        }
+        
+        .sector-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+        
+        .sector {
+            background: white;
+            border-radius: 8px;
+            padding: 10px 6px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .sector .icon {
+            font-size: 1.2em;
+        }
+        
+        .sector span {
+            display: block;
+            font-size: 0.6em !important;
+            color: var(--text);
+            font-weight: 600;
+            margin-top: 0.2em;
+        }
+        
+        .project-cards {
+            display: flex;
+            gap: 25px;
+            margin-top: 15px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            flex: 1;
+        }
+        
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .badge {
+            background: var(--primary);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-size: 0.65em;
+            font-weight: 600;
+        }
+        
+        .badge.terminal {
+            background: var(--dark);
+        }
+        
+        .hours {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+        
+        .project-card h3 {
+            color: var(--text) !important;
+            font-size: 1em !important;
+            margin: 0.3em 0 !important;
+            font-weight: 700 !important;
+        }
+        
+        .project-card p {
+            color: var(--gray);
+            font-size: 0.75em !important;
+            margin: 0.3em 0;
+        }
+        
+        .project-card .note {
+            color: var(--secondary);
+            font-style: italic;
+            font-size: 0.7em !important;
+            margin-top: 10px;
+        }
+        
+        .myth-card {
+            background: white;
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin: 12px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .myth-false {
+            color: #DC2626;
+            font-weight: 600;
+            font-size: 0.85em;
+            margin-bottom: 5px;
+        }
+        
+        .myth-true {
+            color: #059669;
+            font-size: 0.75em;
+        }
+        
+        .quality-list {
+            margin-top: 15px;
+        }
+        
+        .quality {
+            background: white;
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin: 10px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .quality .icon {
+            font-size: 1.3em;
+        }
+        
+        .quality p {
+            margin: 0;
+            font-size: 0.85em !important;
+        }
+        
+        .final-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        
+        .dark-slide h2 {
+            color: white !important;
+            border: none !important;
+            font-size: 2em !important;
+        }
+        
+        .qr-container {
+            display: flex;
+            gap: 40px;
+            margin: 20px 0;
+        }
+        
+        .qr-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .qr-box img {
+            width: 150px;
+            height: 150px;
+            border-radius: 12px;
+            background: white;
+            padding: 10px;
+        }
+        
+        .qr-label {
+            color: var(--secondary);
+            font-size: 0.8em;
+            margin-top: 10px;
+        }
+        
+        .rdm-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .rdm-card h3 {
+            color: var(--dark) !important;
+            font-size: 1em !important;
+            margin: 0 0 0.3em 0 !important;
+        }
+        
+        .rdm-card p {
+            font-size: 0.8em !important;
+            color: var(--gray);
+            margin: 0;
+        }
+        
+        .rdm-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .rdm-tag {
+            background: var(--accent);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.7em;
+            color: var(--dark);
+        }
+        
+        .intro-text {
+            font-size: 1em !important;
+            color: var(--text);
+            margin-bottom: 15px;
+        }
+        
+        .intro-text strong {
+            color: var(--dark);
+        }
+
+        .reveal .controls {
+            color: var(--primary);
+        }
+        
+        .reveal .progress {
+            color: var(--primary);
+            height: 4px;
+        }
+        
+        .reveal .slide-number {
+            background: var(--primary);
+            color: white;
+            font-size: 12px;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        /* ============ ENTONNOIR ============ */
+        .funnel-container {
+            margin-top: 15px;
+        }
+        
+        .funnel-top {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .funnel-card {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            flex: 1;
+            max-width: 200px;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .funnel-card .icon {
+            font-size: 1.8em;
+            margin-bottom: 0.2em;
+        }
+        
+        .funnel-card h4 {
+            color: var(--primary) !important;
+            font-size: 0.85em !important;
+            margin: 0.2em 0 !important;
+            font-weight: 700 !important;
+        }
+        
+        .funnel-card ul {
+            text-align: left;
+            font-size: 0.65em !important;
+            color: var(--gray);
+            margin: 0.4em 0 0 0;
+            padding-left: 1em;
+        }
+        
+        .funnel-card li {
+            font-size: 1em !important;
+            margin: 0.15em 0;
+            color: var(--gray);
+        }
+        
+        /* Arrows - espacées pour être centrées sous chaque carte */
+        .funnel-arrows {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+        }
+        
+        .arrow-wrapper {
+            flex: 1;
+            max-width: 200px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .arrow-down {
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 20px solid var(--primary);
+        }
+        
+        .funnel-bottom {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 15px 25px;
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .funnel-bottom h4 {
+            color: white !important;
+            font-size: 0.95em !important;
+            margin: 0 0 0.3em 0 !important;
+            font-weight: 700 !important;
+        }
+        
+        .funnel-bottom p {
+            color: rgba(255,255,255,0.9) !important;
+            font-size: 0.75em !important;
+            margin: 0;
+        }
+        
+        /* ============ PHYSICS PIE CHART ============ */
+        .physics-box {
+            background: white;
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin-top: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .pie-chart {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #6366F1 0deg 240deg,
+                #E2E8F0 240deg 360deg
+            );
+            position: relative;
+            flex-shrink: 0;
+        }
+        
+        .pie-chart::after {
+            content: '⅔';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.2em;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .physics-text {
+            flex: 1;
+        }
+        
+        .physics-text h4 {
+            color: #4F46E5 !important;
+            font-size: 0.9em !important;
+            margin: 0 0 0.3em 0 !important;
+        }
+        
+        .physics-text p {
+            color: var(--gray) !important;
+            font-size: 0.75em !important;
+            margin: 0;
+        }
+        
+        /* ============ OLYMPIADES BOX ============ */
+        .olympiades-box {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+            color: white;
+            border-radius: 10px;
+            padding: 12px 18px;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .olympiades-box .trophy {
+            font-size: 1.8em;
+        }
+        
+        .olympiades-box .text {
+            flex: 1;
+        }
+        
+        .olympiades-box h4 {
+            color: white !important;
+            font-size: 0.85em !important;
+            margin: 0 0 0.2em 0 !important;
+        }
+        
+        .olympiades-box p {
+            color: rgba(255,255,255,0.9) !important;
+            font-size: 0.7em !important;
+            margin: 0;
+        }
+        
+        /* ============ COMMENT ON TRAVAILLE - IMAGES ANIMÉES ============ */
+        .work-slide-content {
+            display: flex;
+            gap: 30px;
+            margin-top: 15px;
+            height: calc(100% - 100px);
+        }
+        
+        .work-categories {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .work-category {
+            background: white;
+            border-radius: 10px;
+            padding: 12px 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            border-left: 4px solid var(--primary);
+            cursor: default;
+        }
+        
+        .work-category h4 {
+            color: var(--text) !important;
+            font-size: 0.85em !important;
+            margin: 0 0 0.2em 0 !important;
+            font-weight: 700 !important;
+        }
+        
+        .work-category p {
+            color: var(--gray);
+            font-size: 0.7em !important;
+            margin: 0;
+        }
+        
+        .work-visual {
+            flex: 1;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .visual-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 80%;
+        }
+        
+        .visual-content .big-icon {
+            font-size: 3em;
+            margin-bottom: 0.3em;
+        }
+        
+        .visual-content h4 {
+            color: var(--primary) !important;
+            font-size: 1em !important;
+            margin: 0 0 0.3em 0 !important;
+        }
+        
+        .visual-content .examples {
+            color: var(--gray);
+            font-size: 0.75em !important;
+            font-style: italic;
+        }
+        
+        .info-box-small {
+            background: var(--accent);
+            border-left: 4px solid var(--primary);
+            padding: 10px 15px;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.75em;
+            color: var(--dark);
+            margin-top: 15px;
+            width: 100%;
+        }
+        
+        .info-box-small strong {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            
+            <!-- SLIDE 1: TITRE -->
+            <section class="dark-slide">
+                <div class="title-content">
+                    <h1>Sciences de l'Ingénieur</h1>
+                    <p class="subtitle">Spécialité de Première et Terminale</p>
+                    <div class="tagline">Comprendre, Concevoir, Créer</div>
+                </div>
+                <p class="footer-text">Atelier découverte — Forum des spécialités</p>
+            </section>
+            
+            <!-- SLIDE 2: C'EST QUOI LA SI -->
+            <section>
+                <h2>C'est quoi la SI ?</h2>
+                <p class="intro-text"><strong>L'ingénieur ne construit pas lui-même...</strong></p>
+                <div class="cards-3">
+                    <div class="card fragment fade-up">
+                        <div class="card-icon">💡</div>
+                        <h3>Il conçoit</h3>
+                        <p>Imagine des solutions à des problèmes concrets</p>
+                    </div>
+                    <div class="card fragment fade-up">
+                        <div class="card-icon">🔬</div>
+                        <h3>Il modélise</h3>
+                        <p>Simule et teste avant de fabriquer</p>
+                    </div>
+                    <div class="card fragment fade-up">
+                        <div class="card-icon">🎯</div>
+                        <h3>Il optimise</h3>
+                        <p>Fait des choix techniques argumentés</p>
+                    </div>
+                </div>
+                <div class="info-box highlight fragment fade-up">
+                    La SI, c'est apprendre la démarche de l'ingénieur
+                </div>
+            </section>
+            
+            <!-- SLIDE 3: CE QU'ON ÉTUDIE - ENTONNOIR -->
+            <section>
+                <h2>Ce qu'on étudie</h2>
+                <div class="funnel-container">
+                    <div class="funnel-top">
+                        <div class="funnel-card fragment fade-up">
+                            <div class="icon">⚙️</div>
+                            <h4>MÉCANIQUE</h4>
+                            <ul>
+                                <li>Forces et mouvements</li>
+                                <li>Cinématique</li>
+                                <li>Statique</li>
+                            </ul>
+                        </div>
+                        <div class="funnel-card fragment fade-up">
+                            <div class="icon">🔌</div>
+                            <h4>ÉLECTRONIQUE</h4>
+                            <ul>
+                                <li>Capteurs</li>
+                                <li>Actionneurs</li>
+                                <li>Énergie</li>
+                            </ul>
+                        </div>
+                        <div class="funnel-card fragment fade-up">
+                            <div class="icon">💻</div>
+                            <h4>INFORMATIQUE</h4>
+                            <ul>
+                                <li>Programmation</li>
+                                <li>Algorithmes</li>
+                                <li>Systèmes embarqués</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="funnel-arrows fragment fade-up" style="gap: 15px;">
+                        <div class="arrow-wrapper">
+                            <div class="arrow-down"></div>
+                        </div>
+                        <div class="arrow-wrapper">
+                            <div class="arrow-down"></div>
+                        </div>
+                        <div class="arrow-wrapper">
+                            <div class="arrow-down"></div>
+                        </div>
+                    </div>
+                    <div class="funnel-bottom fragment fade-up">
+                        <h4>🤖 Un système complet</h4>
+                        <p>Robot, drone, voiture électrique, imprimante 3D... Tous combinent ces 3 domaines !</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SLIDE 4: TOUT APPRIS DE ZÉRO -->
+            <section>
+                <h2>Pas de prérequis !</h2>
+                <div class="two-cols">
+                    <div class="col">
+                        <div class="info-box" style="margin-top: 0;">
+                            <p style="font-size: 1em !important; margin: 0;"><strong>🎓 Tout est appris de zéro</strong></p>
+                            <p style="margin: 10px 0 0 0;">Vous n'avez jamais codé ? Jamais touché à l'électronique ? Aucun problème !</p>
+                        </div>
+                        <div style="margin-top: 20px;">
+                            <p style="font-size: 0.85em;"><strong>Ce qu'il faut :</strong></p>
+                            <ul style="margin-top: 10px; padding-left: 20px;">
+                                <li style="margin: 8px 0;">Maîtriser les maths de base (calcul, équations)</li>
+                                <li style="margin: 8px 0;">Être curieux et motivé</li>
+                                <li style="margin: 8px 0;">Aimer comprendre "comment ça marche"</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card" style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                            <div class="card-icon">🚀</div>
+                            <h3 style="text-align: center;">On part de zéro...</h3>
+                            <p style="text-align: center;">...et on arrive à concevoir des systèmes complets en 2 ans !</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SLIDE 5: EN TERMINALE -->
+            <section>
+                <h2>En Terminale</h2>
+                <p class="intro-text">On approfondit les notions de Première et on ajoute un nouveau domaine :</p>
+                <div class="two-cols">
+                    <div class="col">
+                        <div class="rdm-card">
+                            <h3>🏗️ Résistance des Matériaux (RDM)</h3>
+                            <p>Comprendre pourquoi et comment les structures résistent aux contraintes</p>
+                        </div>
+                        <div class="info-box">
+                            <strong>Exemples :</strong> Pourquoi un pont ne s'effondre pas ? Comment dimensionner une poutre ? Quel matériau choisir ?
+                        </div>
+                    </div>
+                    <div class="col">
+                        <p style="font-size: 0.85em; margin-bottom: 10px;"><strong>📚 Notions étudiées :</strong></p>
+                        <div class="rdm-tags">
+                            <span class="rdm-tag">⚡ Contraintes</span>
+                            <span class="rdm-tag">📐 Déformations</span>
+                            <span class="rdm-tag">↕️ Traction / Compression</span>
+                            <span class="rdm-tag">↩️ Flexion</span>
+                            <span class="rdm-tag">🔩 Choix des matériaux</span>
+                            <span class="rdm-tag">🛡️ Coefficients de sécurité</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="physics-box">
+                    <div class="pie-chart"></div>
+                    <div class="physics-text">
+                        <h4>📘 +2h de Physique en Terminale</h4>
+                        <p>Si vous gardez SI en Terminale, vous aurez 2h de physique en plus.<br>
+                        C'est environ <strong>2/3 du programme</strong> de la spé Physique-Chimie.<br>
+                        Ça prépare très bien au supérieur sans fermer de portes !</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SLIDE 6: COMMENT ON TRAVAILLE - VERSION ANIMÉE -->
+            <section>
+                <h2>Comment on travaille</h2>
+                <div class="work-slide-content">
+                    <div class="work-categories">
+                        <div class="work-category fragment fade-in-then-semi-out" data-fragment-index="1">
+                            <h4>🔍 Analyser</h4>
+                            <p>Démonter et comprendre les systèmes existants</p>
+                        </div>
+                        <div class="work-category fragment fade-in-then-semi-out" data-fragment-index="2">
+                            <h4>🖥️ Modéliser</h4>
+                            <p>Simuler sur ordinateur avant de fabriquer</p>
+                        </div>
+                        <div class="work-category fragment fade-in-then-semi-out" data-fragment-index="3">
+                            <h4>🧪 Expérimenter</h4>
+                            <p>Manipuler en labo, tester, mesurer</p>
+                        </div>
+                        <div class="work-category fragment fade-in-then-semi-out" data-fragment-index="4">
+                            <h4>🛠️ Concevoir</h4>
+                            <p>Créer ses propres solutions techniques</p>
+                        </div>
+                        <div class="info-box-small fragment fade-up" data-fragment-index="5">
+                            <strong>Travail en équipe</strong> — On réfléchit ensemble, on a le droit de se tromper !
+                        </div>
+                    </div>
+                    <div class="work-visual">
+                        <div class="visual-content fragment fade-in-then-out" data-fragment-index="1">
+                            <div class="big-icon">🔍</div>
+                            <h4>Analyser</h4>
+                            <p class="examples">Imprimante 3D, drone, bras robotique, moteur électrique...</p>
+                        </div>
+                        <div class="visual-content fragment fade-in-then-out" data-fragment-index="2">
+                            <div class="big-icon">🖥️</div>
+                            <h4>Modéliser</h4>
+                            <p class="examples">SolidWorks, OpenModelica, simulation 3D, calculs automatisés...</p>
+                        </div>
+                        <div class="visual-content fragment fade-in-then-out" data-fragment-index="3">
+                            <div class="big-icon">🧪</div>
+                            <h4>Expérimenter</h4>
+                            <p class="examples">Mesures, essais, validation, travaux pratiques en binôme...</p>
+                        </div>
+                        <div class="visual-content fragment fade-in-then-out" data-fragment-index="4">
+                            <div class="big-icon">🛠️</div>
+                            <h4>Concevoir</h4>
+                            <p class="examples">Impression 3D, découpe laser, Arduino, prototypage rapide...</p>
+                        </div>
+                        <div class="visual-content fragment fade-in" data-fragment-index="5">
+                            <div class="big-icon">🎯</div>
+                            <h4>Tout ça ensemble !</h4>
+                            <p class="examples">Sur des projets concrets, de A à Z</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SLIDE 7: LES PROJETS -->
+            <section>
+                <h2>Les projets</h2>
+                <p class="intro-text" style="text-align: center; font-style: italic; color: var(--gray);">Le cœur de la formation : apprendre en faisant</p>
+                <div class="project-cards">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="badge">PREMIÈRE</span>
+                            <span class="hours">12 heures</span>
+                        </div>
+                        <h3>🚗 Projet voiture à gaz</h3>
+                        <p>Concevoir et fabriquer une voiture propulsée au CO₂ pour une course de vitesse</p>
+                        <p>→ Design, aérodynamisme, fabrication</p>
+                        <p class="note">👀 Les voitures sont exposées au mur !</p>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="badge terminal">TERMINALE</span>
+                            <span class="hours">48 heures</span>
+                        </div>
+                        <h3>🎯 Grand projet libre</h3>
+                        <p>Projet de votre choix, en équipe, présenté au baccalauréat</p>
+                        <p>→ Autonomie, créativité, gestion de projet</p>
+                        <p class="note">📊 Coefficient 12 au bac (sur 100)</p>
+                    </div>
+                </div>
+                <div class="olympiades-box">
+                    <div class="trophy">🏆</div>
+                    <div class="text">
+                        <h4>Olympiades de Sciences de l'Ingénieur</h4>
+                        <p>Concours national auquel nous participons régulièrement ! Une occasion de confronter vos projets à ceux d'autres lycées de toute la France.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SLIDE 8: IDÉES REÇUES -->
+            <section>
+                <h2>Idées reçues</h2>
+                <div class="myth-card">
+                    <div class="myth-false">❌ "C'est que pour les garçons"</div>
+                    <div class="myth-true">✅ Les écoles d'ingénieurs recherchent activement des profils féminins. Nombreux secteurs mixtes : biomédical, environnement, design...</div>
+                </div>
+                <div class="myth-card">
+                    <div class="myth-false">❌ "C'est de la mécanique comme en bac pro"</div>
+                    <div class="myth-true">✅ On ne fabrique pas avec les mains. On réfléchit, on simule, on programme. C'est le bureau d'études, pas l'atelier.</div>
+                </div>
+                <div class="myth-card">
+                    <div class="myth-false">❌ "C'est que pour faire prépa"</div>
+                    <div class="myth-true">✅ La SI ouvre sur les BUT, écoles post-bac, licences, architecture... Pas seulement les prépas !</div>
+                </div>
+                <div class="info-box highlight">
+                    Le monde de demain sera construit par des ingénieurs et architectes
+                </div>
+            </section>
+            
+            <!-- SLIDE 9: DÉBOUCHÉS -->
+            <section>
+                <h2>Les débouchés</h2>
+                <div class="two-cols">
+                    <div class="col">
+                        <h3>🎓 Poursuites d'études</h3>
+                        <ul class="simple-list">
+                            <li><strong>Prépas scientifiques</strong> <span>— PTSI, MPSI, PCSI...</span></li>
+                            <li><strong>Écoles d'ingénieurs post-bac</strong> <span>— INSA, UTC, Polytech...</span></li>
+                            <li><strong>BUT</strong> <span>— GEII, GMP, Informatique...</span></li>
+                            <li><strong>Licences</strong> <span>— Sciences, Maths, Physique</span></li>
+                            <li><strong>Architecture</strong> <span>— La SI est valorisée !</span></li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <h3>🏭 Secteurs d'activité</h3>
+                        <div class="sector-grid">
+                            <div class="sector"><span class="icon">⚡</span><span>Énergie</span></div>
+                            <div class="sector"><span class="icon">🚗</span><span>Transports</span></div>
+                            <div class="sector"><span class="icon">🤖</span><span>Robotique</span></div>
+                            <div class="sector"><span class="icon">💻</span><span>Numérique</span></div>
+                            <div class="sector"><span class="icon">🏗️</span><span>Bâtiment</span></div>
+                            <div class="sector"><span class="icon">🌱</span><span>Environnement</span></div>
+                            <div class="sector"><span class="icon">👗</span><span>Mode / Luxe</span></div>
+                            <div class="sector"><span class="icon">🩺</span><span>Biomédical</span></div>
+                            <div class="sector"><span class="icon">✈️</span><span>Aéronautique</span></div>
+                            <div class="sector"><span class="icon">🎮</span><span>Jeux vidéo</span></div>
+                            <div class="sector"><span class="icon">🍔</span><span>Agroalimentaire</span></div>
+                            <div class="sector"><span class="icon">🎬</span><span>Cinéma / FX</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-box highlight" style="margin-top: 12px;">
+                    Les grands défis de demain — climat, énergie, mobilité, santé — seront relevés par des ingénieurs
+                </div>
+            </section>
+            
+            <!-- SLIDE 10: C'EST POUR VOUS SI -->
+            <section>
+                <h2>C'est pour vous si...</h2>
+                <div class="quality-list">
+                    <div class="quality">
+                        <span class="icon">💡</span>
+                        <p>Vous aimez <strong>comprendre comment les choses fonctionnent</strong></p>
+                    </div>
+                    <div class="quality">
+                        <span class="icon">👥</span>
+                        <p>Vous aimez <strong>travailler en équipe</strong> sur des projets concrets</p>
+                    </div>
+                    <div class="quality">
+                        <span class="icon">🔧</span>
+                        <p>Vous avez envie de <strong>créer, bidouiller, expérimenter</strong></p>
+                    </div>
+                    <div class="quality">
+                        <span class="icon">📐</span>
+                        <p>Vous êtes <strong>à l'aise en maths de base</strong> (ou voulez progresser)</p>
+                    </div>
+                </div>
+                <div class="info-box highlight" style="margin-top: 15px;">
+                    Pas besoin d'être un génie ! On apprend ensemble, on a le droit de se tromper.
+                </div>
+            </section>
+            
+            <!-- SLIDE 11: FINALE -->
+            <section class="dark-slide">
+                <div class="final-content">
+                    <h2>Des questions ?</h2>
+                    <div class="qr-container">
+                        <div class="qr-box">
+                            <img src="qr-recap.png" alt="QR Code Récap">
+                            <span class="qr-label">📋 Récap des infos</span>
+                        </div>
+                        <div class="qr-box">
+                            <img src="qr-sondage.png" alt="QR Code Sondage">
+                            <span class="qr-label">📊 Donnez votre avis !</span>
+                        </div>
+                    </div>
+                    <p class="footer-text" style="position: relative; margin-top: 30px;">Sciences de l'Ingénieur — Spécialité de 1ère et Terminale</p>
+                </div>
+            </section>
+            
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.6.1/reveal.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            transition: 'slide',
+            transitionSpeed: 'default',
+            backgroundTransition: 'none',
+            center: false,
+            controls: true,
+            progress: true,
+            slideNumber: 'c/t',
+            keyboard: true,
+            touch: true,
+            loop: false,
+            autoSlide: 0,
+            mouseWheel: false,
+            width: 1100,
+            height: 700,
+            margin: 0.05,
+        });
+    </script>
+</body>
+</html>
